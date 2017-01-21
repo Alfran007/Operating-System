@@ -1,53 +1,93 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<ctype.h>
-int main()
+int main(int argc, char * argv[])
 {
 
+if(argc==3)
+{
+int m =atoi(argv[1]);
+int n = atoi(argv[2]);
+
+/* Error Handling */
+
+if(m<=0 || n<=0)
+{
+printf("Error: Enter only possitive values\n");
+return 1;
+}
+
+
+if(n%m!=0)
+{
+printf("Error: Enter n as a multiple of m\n");
+return 1;
+}
+}
+
+/* Declaration of Vriables*/
+
+int sum1=0,sum2=0,i=0;
+float sum=0,j,a[1000]; 
+char b[10000],s[1000];
+
+FILE *fp; //Declaring a file pointer
+
+
+
 /*Version1 : Static*/
+if(argc==1)
+{
 
 /*Processor type*/
-FILE *fp;
-
 printf("\n\n*************************\n\n");
-
 
 system("cat /proc/cpuinfo | grep 'model name' | uniq");
-printf("\n\n*************************\n\n");
+
 /*Kernel version*/
-int i=0;
-char s[1000];
+printf("\n\n*************************\n\n");
+
 fp = fopen("/proc/version","r");
 printf("Kernel Version is : ");
 fscanf(fp,"Linux version %s",s);
 printf("%s\n",s);
 fclose(fp);
 
+/*The amount of memory configured into this computer*/
 printf("\n\n*************************\n\n");
 
-
-/*The amount of memory configured into this computer*/
 system("cat /proc/meminfo | grep MemTotal | uniq");
 
+/*Amount of time since the system was last booted*/
 printf("\n\n*************************\n\n");
 
-
-/*Amount of time since the system was last booted*/
 printf("System was last booted since:\n");
 system("cat /proc/uptime");
-
 printf("\n\n*************************\n\n");
+}
 
-printf("\n\n*************************\n\n");
-
+else
+{
+if(argc==2)
+{
+	printf("Error: Please Enter 2 values\n");
+	return 1;
+}
+else
+{
 /*Version2 : Dynamic*/
-
+printf("\n\n*************************\n\n");
+int m =atoi(argv[1]);
+int n = atoi(argv[2]);
+int k = n/m;
+printf("k is :%d\n",k);
+while(k--)
+{
 
 /*The percentage of time the processor(s) spend in user mode, system mode, and
-
 the percentage of time the processor(s) are idle*/
 
-float sum=0,j,a[1000];
+
 fp = fopen("/proc/stat","r");
 fscanf(fp,"%s",s);
 for(i=0;i<10;i++)
@@ -57,10 +97,11 @@ sum = sum + a[i];
 }
 printf("User Mode:  %.2f\n",(a[0]/sum)*100);
 printf("System Mode:  %.2f\n",(a[2]/sum)*100);
-printf("IdealMode:  %.2f\n",(a[3]/sum)*100);
+printf("IdleMode:  %.2f\n",(a[3]/sum)*100);
 
-printf("\n\n*************************\n\n");
 /*The amount and percentage of available (or free) memory*/
+printf("\n\n*************************\n\n");
+
 
 fp = fopen("/proc/meminfo","r");
 
@@ -76,13 +117,11 @@ sum = (float)atoi(s);//converting the string to integer and typecasting it to fl
 
 printf("Amount of free memory is :%.2f \nPercentage of available memory is:%.2f \n",sum,(sum/j)*100);
 
-printf("\n\n*************************\n\n");
 fclose(fp);
 
 /* The rate (number of blocks per second) of disk read/write in the system*/
+printf("\n\n*************************\n\n");
 
-int sum1=0,sum2=0;
-char b[10000];
 fp = fopen("/proc/diskstats","r");
 while(!feof(fp))
 {
@@ -128,6 +167,11 @@ fscanf(fp,"%s",s);
 fscanf(fp,"%s",s);
 i = atoi(s);
 printf("Processes: %d\n",i);
+}
+
+}
+}
+return 0;
 }
 
 
