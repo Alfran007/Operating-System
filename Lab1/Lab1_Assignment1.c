@@ -78,7 +78,58 @@ printf("Amount of free memory is :%.2f \nPercentage of available memory is:%.2f 
 
 printf("\n\n*************************\n\n");
 fclose(fp);
+
+/* The rate (number of blocks per second) of disk read/write in the system*/
+
+int sum1=0,sum2=0;
+char b[10000];
+fp = fopen("/proc/diskstats","r");
+while(!feof(fp))
+{
+while(1)
+{
+fscanf(fp,"%c",&b[i]);
+
+if(b[i]=='s')
+{
+	fscanf(fp,"%s",b);
+	fscanf(fp,"%s",b);
+
+	sum1 = sum1 + atoi(b); 
+
+	fscanf(fp,"%s",b);
+	fscanf(fp,"%s",b);
+	fscanf(fp,"%s",b);
+	fscanf(fp,"%s",b);
+
+	sum2 = sum2 + atoi(b);
 }
+break;
+i++;
+}
+}
+printf("\nDisk Read: %d\nDisc Write: %d\n",sum1,sum2);
+
+fclose(fp);
+
+printf("\n\n*************************\n\n");
+
+/*The rate (number per second) of context switches in the kernel*/
+fp = popen("cat /proc/stat | grep 'ctxt' | uniq","r");
+fscanf(fp,"%s",s);
+fscanf(fp,"%s",s);
+i = atoi(s);
+printf("Context Switches: %d\n",i);
+
+
+/*The rate (number per second) of process creations in the system*/
+fp = popen("cat /proc/stat | grep 'processes' | uniq","r");
+fscanf(fp,"%s",s);
+fscanf(fp,"%s",s);
+i = atoi(s);
+printf("Processes: %d\n",i);
+}
+
 
 
 
