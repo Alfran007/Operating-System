@@ -36,9 +36,9 @@ printf("\n\n*************************\n\n");
 printf("System was last booted since:\n");
 system("cat /proc/uptime");
 
+printf("\n\n*************************\n\n");
 
-
-
+printf("\n\n*************************\n\n");
 
 /*Version2 : Dynamic*/
 
@@ -47,11 +47,19 @@ system("cat /proc/uptime");
 
 the percentage of time the processor(s) are idle*/
 
-float sum,j;
-/*fp = fopen("/proc/stat","r");
+float sum=0,j,a[1000];
+fp = fopen("/proc/stat","r");
 fscanf(fp,"%s",s);
-for(i=0;i<)*/
+for(i=0;i<10;i++)
+{
+fscanf(fp,"%f",&a[i]);
+sum = sum + a[i];
+}
+printf("User Mode:  %.2f\n",(a[0]/sum)*100);
+printf("System Mode:  %.2f\n",(a[2]/sum)*100);
+printf("IdealMode:  %.2f\n",(a[3]/sum)*100);
 
+printf("\n\n*************************\n\n");
 /*The amount and percentage of available (or free) memory*/
 
 fp = fopen("/proc/meminfo","r");
@@ -68,6 +76,7 @@ sum = (float)atoi(s);//converting the string to integer and typecasting it to fl
 
 printf("Amount of free memory is :%.2f \nPercentage of available memory is:%.2f \n",sum,(sum/j)*100);
 
+printf("\n\n*************************\n\n");
 fclose(fp);
 }
 
