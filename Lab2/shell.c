@@ -23,42 +23,52 @@ getline(&s,&size,stdin);
 s[strlen(s)-1] = '\0';
 
 
-if(!strcmp(s,"exit\n"))
+if(!strcmp(s,"exit"))
 {
-	exit(0); // Exit on exit
+	exit(0);	// Exit on exit
+	printf("\nThanks for using Alfran's Shell! :)\n"); 
 }
 if(feof(stdin))  // Exit on Ctrl + D
 { 
 printf("\n");
+printf("\nThanks for using Alfran's Shell! :)\n"); 
 exit(0);
 }
 
 
-t = strtok(s," ");
+t = strtok(s," ");  // taking string before space.
 arr[0] = t;
 for(i=1; t!=NULL ;i++)	
 {
-if(!strcmp(t,"cd"))
+if(!strcmp(t,"cd"))  // program for cd command.
 {
 in = strtok(NULL," ");
-if(chdir(in)==-1)
-printf("Not a directory\n");
-out =2;
+if(in==NULL)
+{
+printf("Error: Enter the Directory\n");
+out=2; //checking valid directory.
+break;
 }
-t = strtok(NULL, " ");
+if(chdir(in)==-1)
+printf("Error: Not a valid directory\n");  
+out =2;  //checking valid directory.
+}
+t = strtok(NULL, " ");  // taking the string parts breaking through spaces.
 arr[i] = t;
 }
 
-if(out==2)
+if(out==2)  //if directory is invalid continue the loop.
 continue;
+
+
 if(i>0)
 {
-pd = fork();
+pd = fork();  // getting the process id and forking the program.
 if(pd<0)
 {
-printf("Error: Child process forking failed");
+printf("Error: Child process forking failed\n");
 }
-if(pd>=0)
+else if(pd>=0)
 {
 if(pd==0)
 {
@@ -75,5 +85,6 @@ else
 }
 }
 }
+printf("\nThanks for using Alfran's Shell! :)\n");
 
 }
