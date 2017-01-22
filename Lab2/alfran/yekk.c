@@ -11,12 +11,12 @@ int main(void)
 char *s,*t,*in;
 char *arr[1000];
 pid_t pd;
-int i,out=0;
+int i;
 size_t size;
 printf("*********Alfran shell executes************\n");
 while(1)
 {
-out =0;
+
 s=malloc(100*sizeof(char));
 printf("\nroot@alfran_shell:~");
 getline(&s,&size,stdin);
@@ -41,16 +41,13 @@ for(i=1; t!=NULL ;i++)
 if(!strcmp(t,"cd"))
 {
 in = strtok(NULL," ");
-if(chdir(in)==-1)
-printf("Not a directory\n");
-out =2;
+chdir(in);
 }
 t = strtok(NULL, " ");
 arr[i] = t;
 }
 
-if(out==2)
-continue;
+
 if(i>0)
 {
 pd = fork();
