@@ -26,3 +26,8 @@ firefox is taking maximum memory share.
 %Memory:10.6
 %CPU: 3.0
 
+
+Command on a shell such that the command does not make a system call:
+1. cd
+2. help
+3. history
