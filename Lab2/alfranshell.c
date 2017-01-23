@@ -30,11 +30,12 @@ if(!strcmp(token[0],"cd"))  // program for cd command.
 {
 
 inp = strtok(NULL," ");
-//printf("%s ",inp);
+
+//printf("input is %s ",inp);
 //printf("\n%sasd\n",t);
 	if(inp==NULL)
 	{
-	chdir(getenv("HOME"));
+	//chdir("/home");
 	return 0;
 	}
 
@@ -55,16 +56,17 @@ if(pd<0)
       }
 else  if(pd==0)
             {
-	            if(execvp(arr[0],arr)<0)
+	            if(execvp(token[0],token)<0)
 	            {
 		            printf("Error: Command not found\n");
 	            }
+	            exit(0);
             }
             else
 	            {
 		            if(strcmp(ch,"&"))
 		            {
-			            wait(NULL);	
+			            waitpid(pd,NULL,0);	
 		            }
 
 	            }         
@@ -114,14 +116,14 @@ if(!strcmp(t,"cd"))
 	//if(x==0)
 	  //    continue;
 }
-//int j=0;
+int j=0;
 for(i=2; t!=NULL ;i++)	
 {
 flag =0;
 outp = t;
 t = strtok(NULL," ");
 
-//printf("%s ",t);
+//printf("it is :%s ",t);
   // taking the string parts breaking through spaces.
 //printf("hereds token is %s\n",t);
 
@@ -129,7 +131,7 @@ t = strtok(NULL," ");
 if(t==NULL)
 {
       
-	check(arr," ");
+	check(arr+j," ");
 	//j=i+1;
 	continue;
 }
@@ -140,30 +142,30 @@ if(!strcmp(t,"&"))
 	arr[i-1]=NULL;
 	//for(k=0;k<=i;k++)
       //	printf("%s ",arr[k]);
-	check(arr,"&");
+	check(arr+j,"&");
 	//arr[i-1]="&";
 	
-	//j=i+1;
+	j=i;
 	continue;
 }
 
 else if(!strcmp(t,"|"))
 {
-	check(arr,"|");
-	//j=i+1;
+	check(arr+j,"|");
+	j=i;
 	continue;
 }
 else if(!strcmp(t,"cd"))
 {
 	//printf("cd typed!\n");
-	check(arr,"cd");
+	check(arr+j,"cd");
 	continue;
 	//if(x==0)
 	  //    continue;
 }
 else
 {
-      check(arr," ");
+      //check(arr+j," ");
 }
 
 }
@@ -171,4 +173,5 @@ else
 printf("\nThanks for using Alfran's Shell! :)\n");
 
 }
+
 
