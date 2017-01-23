@@ -15,23 +15,26 @@ char *arr[1000];
 
 int check(char *token[], char *ch)
 {
+
+//if(t==NULL || token[0]==NULL)
+//return 0;
 if(i>0)
 {
-if(flag==1)
+/*if(flag==1)
 {
 waitpid(pd,&status,WUNTRACED);
-}
+return 0;
+}*/
 //printf("\n%s\n",token[0]);
 if(!strcmp(token[0],"cd"))  // program for cd command.
 {
-if(t==NULL)
-return 0;
+
 inp = strtok(NULL," ");
 //printf("%s ",inp);
 //printf("\n%sasd\n",t);
 	if(inp==NULL)
 	{
-	printf("Error: Enter the Directory\n");
+	chdir(getenv("HOME"));
 	return 0;
 	}
 
@@ -42,10 +45,7 @@ inp = strtok(NULL," ");
 	}
 return 0;
 }
-if(!strcmp(ch,"&"))
-{
-wait(NULL);
-}
+
 pd = fork();  // getting the process id and forking the program.
 if(pd<0)
 {
@@ -76,13 +76,14 @@ else  if(pd==0)
 int main(void)
 {
 int k;
-flag =0;
+
 //void ampersand();
 printf("*********Alfran shell executes************\n");
 
 
 while(1)
 {
+flag =0;
 s=malloc(100*sizeof(char));
 printf("\nroot@alfran_shell:~");
 getline(&s,&size,stdin);
@@ -114,10 +115,12 @@ if(!strcmp(t,"cd"))
 	  //    continue;
 }
 //int j=0;
-for(i=1; t!=NULL ;i++)	
+for(i=2; t!=NULL ;i++)	
 {
-
+flag =0;
 outp = t;
+t = strtok(NULL," ");
+
 //printf("%s ",t);
   // taking the string parts breaking through spaces.
 //printf("hereds token is %s\n",t);
@@ -130,15 +133,15 @@ if(t==NULL)
 	//j=i+1;
 	continue;
 }
-
+arr[i-1] = t;
 if(!strcmp(t,"&"))
 {
 //	printf("here token is %s\n",t);
-	arr[i]=NULL;
+	arr[i-1]=NULL;
 	//for(k=0;k<=i;k++)
       //	printf("%s ",arr[k]);
 	check(arr,"&");
-	arr[i]="&";
+	//arr[i-1]="&";
 	
 	//j=i+1;
 	continue;
@@ -154,15 +157,15 @@ else if(!strcmp(t,"cd"))
 {
 	//printf("cd typed!\n");
 	check(arr,"cd");
+	continue;
 	//if(x==0)
 	  //    continue;
 }
 else
 {
-      check(arr,t);
+      check(arr," ");
 }
-t = strtok(NULL," ");
-arr[i] = t;
+
 }
 }
 printf("\nThanks for using Alfran's Shell! :)\n");
