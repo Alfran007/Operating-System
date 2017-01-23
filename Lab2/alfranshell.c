@@ -4,7 +4,7 @@
 #include<string.h>
 #include<stddef.h>
 #include <sys/types.h>
-#include <sys/wait.h>
+#include<sys/wait.h>
 pid_t pid,pd;
 
 int i,outp=0;
@@ -17,11 +17,13 @@ int check(char *token[], char *ch)
 {
 if(i>0)
 {
-printf("\n%s\n",token[0]);
+//printf("\n%s\n",token[0]);
 if(!strcmp(token[0],"cd"))  // program for cd command.
 {
+if(t==NULL)
+return 0;
 inp = strtok(NULL," ");
-printf("\n%s\n",inp);
+//printf("\n%sasd\n",t);
 	if(inp==NULL)
 	{
 	printf("Error: Enter the Directory\n");
@@ -33,21 +35,18 @@ printf("\n%s\n",inp);
 	printf("Error: Not a valid directory\n");  
 	return 0;  
 	}
+return 0;
 }
-if(i>0)
-{
 pd = fork();  // getting the process id and forking the program.
 if(pd<0)
-if(!strcmp(t,"&"))
 {
 printf("Error: Child process forking failed\n");
-	check(arr,"&");
+	
 	return 0;
 }
 else if(pd>=0)
 {
 if(pd==0)
-if(!strcmp(t,"|"))
 {
 	if(execvp(arr[0],arr)<0)
 	{
@@ -56,12 +55,14 @@ if(!strcmp(t,"|"))
 }
 else
 	{
-		wait(NULL);
+		if(strcmp(ch,"&"))
+		{
+			wait(NULL);	
+		}
+
 	}
 
-	//check(arr,"|");
-	//return 1;
-}
+	
 
 }
 
@@ -74,11 +75,6 @@ else
 int main(void)
 {
 
-char *s,*t,*in;
-char *arr[1000];
-pid_t pd;
-int i,out=0;
-size_t size;
 
 //void ampersand();
 printf("*********Alfran shell executes************\n");
@@ -86,44 +82,74 @@ printf("*********Alfran shell executes************\n");
 
 while(1)
 {
-out =0;
 outp =0;
 s=malloc(100*sizeof(char));
 printf("\nroot@alfran_shell:~");
 getline(&s,&size,stdin);
+s[strlen(s)-1] = '\0';
+
+
+if(!strcmp(s,"exit"))
+{
+	exit(0);	// Exit on exit
+	printf("\nThanks for using Alfran's Shell! :)\n"); 
+}
+if(feof(stdin))  // Exit on Ctrl + D
+{ 
+printf("\n");
+printf("\nThanks for using Alfran's Shell! :)\n"); 
 exit(0);
+}
 
 
 t = strtok(s," ");  // taking string before space.
-
 arr[0] = t;
-for(i=1; t!=NULL ;i++)	
-{
-if(!strcmp(t,"cd"))  // program for cd command.
-{
-in = strtok(NULL," ");
-if(in==NULL)
 if(!strcmp(t,"cd"))
 {
-printf("Error: Enter the Directory\n");
-out=2; //checking valid directory.
-break;
-	printf("cd typed!\n");
-	check(arr,"cd");
+	//printf("cd typed!\n");
+	int x =check(arr,"cd");
+	if(x==0)
+	continue;
 }
-if(chdir(in)==-1)
-printf("Error: Not a valid directory\n");  
-out =2;  //checking valid directory.
-}
-t = strtok(NULL, " ");  // taking the string parts breaking through spaces.
-t =strtok(NULL," ");  // taking the string parts breaking through spaces.
-printf("here token is %s\n",t);
+int j=0;
+for(i=1; t!=NULL ;i++)	
+{
+t =strtok(NULL," ");
+
+  // taking the string parts breaking through spaces.
+//printf("hereds token is %s\n",t);
 arr[i] = t;
+
+if(t==NULL)
+{
+printf("hello\n");
+	check(arr," ");
+	//j=i+1;
+	continue;
 }
 
-if(out==2)  //if directory is invalid continue the loop.
-continue;
+if(!strcmp(t,"&"))
+{
+	printf("here token is %s\n",t);
+	arr[i]=NULL;
+	check(arr,"&");
+	printf("adsrajaf\n");
+	//arr[i]="&";
+	
+	//j=i+1;
+	continue;
+}
+
+if(!strcmp(t,"|"))
+{
+	check(arr,"|");
+	//j=i+1;
+	continue;
+}
+
+}
+}
+printf("\nThanks for using Alfran's Shell! :)\n");
 }
 
 
-}
