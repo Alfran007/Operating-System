@@ -13,8 +13,11 @@ size_t size;
 char *s,*t,*inp,*outp;
 char *arr[1000];
 
-int check(char *token[], char *ch)
+void check(char *token[], char *ch)
 {
+       if(token[0] == NULL)
+            return;
+      
       if(i>=0)
       {
             if(!strcmp(token[0],"cd"))  // program for cd command.
@@ -23,16 +26,16 @@ int check(char *token[], char *ch)
                   inp = strtok(NULL," ");
 	            if(inp==NULL)
 	            {
-	                return 0;
+	                return;
 	            }
 
 	            else if(chdir(inp)==-1) //checking valid directory.
 	            {
 	                  printf("Error: Not a valid directory\n");  
-	                  return 0;  
+	                  return ;  
 	            }
 	            printf("directory changed\n");
-                  return 0;
+                  return ;
             }
 
             pd = fork();  // getting the process id and forking the program.
@@ -40,11 +43,12 @@ int check(char *token[], char *ch)
             {
                   printf("Error: Child process forking failed\n");
 	
-	            return 0;
+	            return;
             }
-            else  if(pd==0)
+            else if(pd==0)
             {
-                  if(execvp(token[0],token)<0)
+                 // printf("mast hai!: %s\n",token[1]);
+                  if(execvp(token[0],token) < 0)
                   {
                         printf("Error: Command not found\n");
                   }
@@ -53,7 +57,7 @@ int check(char *token[], char *ch)
             else
             {
                   if(strcmp(ch,"&"))
-                  {
+                  {     
                         waitpid(pd,NULL,0);	
                   }
 
@@ -76,6 +80,7 @@ int main(int argc,char *argv[])
             s=malloc(100*sizeof(char));
             printf("\nroot@alfran_shell:~");
             getline(&s,&size,stdin);
+            if(!strcmp(s,"\n")) continue;
             s[strlen(s)-1] = '\0';
 
 
@@ -142,5 +147,6 @@ int main(int argc,char *argv[])
       return 0;
 
 }
+
 
 
