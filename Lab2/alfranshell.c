@@ -125,7 +125,7 @@ int main(int argc,char *argv[])
 	                  check(arr+j,"&");
 	                  arr[i-1]="&";
 	                  j=i;
-	                  break;
+	                 continue;// break;
                   }
 
                   else if(!strcmp(t,"|"))
