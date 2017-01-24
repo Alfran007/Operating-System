@@ -1,0 +1,17 @@
+1. Location of fork.c
+
+
+go to linux version 
+
+i.e.
+
+cd linux-4.9.5 from Desktop
+
+now enter:
+select all  ". pro\*" 
+ 
+now grep the file using grep.c
+
+sp command would be
+
+find . pro\* | grep fork.c
