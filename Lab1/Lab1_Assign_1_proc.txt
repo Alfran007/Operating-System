@@ -1,0 +1,39 @@
+
+   
+              
+              (a)   /* Static */
+                    
+                     It prints 
+                    .Processor type(using /proc/cpuinfo)
+                    .Kernel version(using /proc/version)
+                    .The amount of memory configured into this computer(using /proc/meminfo)
+                    .Amount of time since the system was last booted(using /proc/uptime)
+
+               
+               (b)-      /*Dynamic*/
+                      If arguments are passed
+ 
+                      It calculates data for n seconds taking data after every m seconds.
+                      sleep() function is used  for waiting for m seconds.
+                      
+                      It prints average value of(over the loop of n/m)-
+                      
+                      •The percentage of time the processor(s) spend in user mode, system mode, and
+                        the percentage of time the processor(s) are idle(USING /proc/stat)
+                      •The amount and percentage of available (or free) memory(using /proc/meminfo)
+                      •The rate (number of blocks per second) of disk read/write in the system(using /proc/diskstats)
+                      •The rate (number per second) of context switches in the kernel(using /proc/stat)
+                      •The rate (number per second) of process creations in the system(using /proc/stat)
+
+                  It checks all type of error:
+                       1. If character(letters) is passed in any one argument. Both capital and small letters
+                       2. If float is passed and they n is not multiple of m.
+                       3. If negative numbers are passed.
+                       4. It the possitive integers are not divisible.
+                       5. If number of arguments are other than 2 or 0.
+                       
+                       
+                        
+
+
+
