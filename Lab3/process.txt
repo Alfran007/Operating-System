@@ -1,17 +1,36 @@
-1. Location of fork.c
+a) 
 
+Location of fork.c
 
-go to linux version 
+      pic : Attached
+      
+      go to linux version 
 
-i.e.
+      i.e.
 
-cd linux-4.9.5 from Desktop
+      cd linux-4.9.5 from Desktop
 
-now enter:
-select all  ". pro\*" 
+      now enter:
+      select all  ". pro\*" 
  
-now grep the file using grep.c
+      now grep the file using grep.c
+      so command would be
+      find . pro\* | grep fork.c
+      
+Location of do_fork();
 
-sp command would be
+      pic : Attached
+      
+      go to kernel folder
+      
+      now in the fork.c file
+      find do_fork() defination
+      
+      get the line numbers of starting and ending and print it on the screen using
+      
+      sed -n 1907,1977p fork.c
 
-find . pro\* | grep fork.c
+
+
+
+2)

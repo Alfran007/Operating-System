@@ -1,0 +1,21 @@
+
+      Pic : Attached
+      
+      
+      a) The command shown in the pic gives the owners name which is root itself.
+      
+      What I observed:
+      b) We are only allowed to change only our password inspite of having effective user id of root because at the time of
+      password change the real user id is checked not the effective user id . We can only change the effective user id and
+      not the real user id.
+      
+      We can't change other passwords because the program won't allow us to. The program has system permissions to change any 
+      password it wants, because it is running as root, but the program has been specifically designed not to give the user
+      any way to get it to use those permissions  
+
+      When a normal user wants to make change to the passwd file, the user will by setuid be given the effective user access. 
+      User becomes root temporarily and can edit passwd.
+      
+      Moreover, even if user does sudo which changes eff uid(EUID) to root the real uid stays the same and don't given access
+      
+     
