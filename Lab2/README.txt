@@ -21,5 +21,11 @@ execvp() takes two arguments in my program one for the command to execute same a
 Than my program do some additional condition checking for & , cd (which also further have checked for the directory existance and the arguments (path) passed and reacted accordingly), pipe '|' which seperates 2 processes and runs one child process into another child process such that output of one process is the input for another child process, and hence the threads are needed to be created(partially undone). 
 
 
+it handles multiple & to open directory then file like cd dirname & gedit filename .
+Also it handles that when two files with same name example : gedit abc & gedit abc , it opens only one file with this name.
 
+
+
+it handles spaces and new line also it handles cd eithout any arguments.
+it handles pipes.
 
