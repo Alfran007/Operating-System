@@ -46,6 +46,12 @@ Location of sys_fork():
 	so whenwe call fork.c it calls the function sys_fork() which further clls do_fork() to genereate a child process and a unique process 		ID.
 
 b)
+	The task_struct structure contains all the information that the kernel has and needs about a process.
+	Struct task_struct was stored at the end of the kernel stack of each process. This allowed architectures with few registers, such as 		x86, to calculate the location of the process descriptor via the stack pointer without using an extra register to store the location.
+
+	Each element in the task list is a process descriptor of the type struct task_struct, which is defined in <linux/sched.h>. The process 		descriptor contains all the information about a specific process.
+	The process descriptor contains the data that describes the executing programopen files, the process's address space, pending signals, 		the process's state
+
 
 
 c)
@@ -63,4 +69,6 @@ Jiffies are located at:
 	jiffies.h is located at /linux-4.9.5/include/linux/jiffies.h
 
 	command: locate jiffies
+
+	Jiffies is a global variable which count the number of ticks(pulses) in cpu. 
 
