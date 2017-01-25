@@ -1,8 +1,13 @@
+a)
+If one is doing a big project and someone do some changes in some of the files only then with the help of  these make file dependencies only he modified code has to be compiled
+It uses gcc's various -M flags to generate the dependencies and then -include them in our Makefile
+
+
 b)
 
 $< :
-This symbol is required as a prior condition for others to happen
-C compilation typically takes a.c file and makes a.o file. So make applies the implicit rule for C compilation when it sees this combination of file name ending.
+This symbol is required as a prior condition for others to happen.
+C compilation takes a.c file and makes a.o file. So make applies the implicit rule for C compilation when it sees this combination of file name ending.
 If the running file takes recipe from our make file having compling code, this will be the the first priority.
 
 
@@ -53,6 +58,6 @@ and use make win or make nix
 d)
 Files : Attached
 
-sqrt.c includes sqrt.h which contains header files of using function atoi() of stdlib.h and other stdio.h file in sqrt.h
+sqrt.c includes sqrt.h which contains header files of using function atoi() ,of stdlib.h and other stdio.h file . Also it has function prototype of sqrt(). Hence, when code is changed it only has to be changed in sqrt.c and sqrt.h remains unchanged. Hence, file sqrt.c is dependent on sqrt.h .
 
 
