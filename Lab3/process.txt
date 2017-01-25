@@ -30,6 +30,12 @@ Location of do_fork();
       
       sed -n 1907,1977p fork.c
 
+Location of sys_fork:
+	pic : Attached
+	
+	path :~/Downloads/linux-4.9.5$ gedit arch/m68k/kernel/entry.S
+
+	sys_fork is redefinedin modern versions of linux, it is in assembly and the pic of assembly is also attached with the file location 		pics.
 
 
 
