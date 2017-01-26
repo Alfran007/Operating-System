@@ -1,6 +1,15 @@
-build:sqrt.c
-	gcc -Wall sqrt.c sqrt.h -lm -o sqrt
+CC := gcc
+CFLAGS := -Wall
+SOURCES := sqrt.h sqrt.c 
+OUTPUT_FILE := a.out
+LDLIBS := -lm 
+build: $(SOURCES)
+	$(CC) $(CFLAGS) -o $(OUTPUT_FILE) $(SOURCES) $(LDLIBS)
+
 clean:
-	rm sqrt
-rebuild:clean build
+	rm -f $(OUTPUT_FILE)
+
+rebuild: clean build
+
 all: build
+

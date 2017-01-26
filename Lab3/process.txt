@@ -40,17 +40,26 @@ Location of sys_fork():
 	
 	path :~/Downloads/linux-4.9.5$ gedit arch/m68k/kernel/entry.S
 
-	sys_fork is redefined in modern versions of linux, it is in assembly and the pic of assembly is also attached with the file location 		pics.
+	sys_fork is redefined in modern versions of linux, it is in assembly and the pic of assembly is also attached with the file location pics.
 
 	In fork.c there is a function do_fork() which is called by sys_fork() which i present in process.c and is in assembly.
-	so whenwe call fork.c it calls the function sys_fork() which further clls do_fork() to genereate a child process and a unique process 		ID.
+	so whenwe call fork.c it calls the function sys_fork() which further clls do_fork() to genereate a child process and a unique process ID.
 
-b)
+b)	
+	Command to locate process descriptor ​ task_struct​ structure.
+	grep -r "struct task_struct {" *
+
+	output:
+	linux-4.9.5/tools/lib/lockdep/uinclude/linux/lockdep.h:struct task_struct {
+	linux-4.9.5/include/linux/sched.h:struct task_struct {
+
+	These 2 files contain the definition of task_struct.
+
 	The task_struct structure contains all the information that the kernel has and needs about a process.
-	Struct task_struct was stored at the end of the kernel stack of each process. This allowed architectures with few registers, such as 		x86, to calculate the location of the process descriptor via the stack pointer without using an extra register to store the location.
+	Struct task_struct was stored at the end of the kernel stack of each process. This allowed architectures with few registers, such as x86, to 		calculate the location of the process descriptor via the stack pointer without using an extra register to store the location.
 
-	Each element in the task list is a process descriptor of the type struct task_struct, which is defined in <linux/sched.h>. The process 		descriptor contains all the information about a specific process.
-	The process descriptor contains the data that describes the executing programopen files, the process's address space, pending signals, 		the process's state
+	Each element in the task list is a process descriptor of the type struct task_struct, which is defined in <linux/sched.h>. The process 			descriptor contains all the information about a specific process.
+	The process descriptor contains the data that describes the executing programopen files, the process's address space, pending signals,the 		process's state
 
 
 
