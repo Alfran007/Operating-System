@@ -63,15 +63,26 @@ and made a file : print_something.c that prints something.
 Changes made in files:
 
 1) tests.c as :
+In the structure the first parameter is name of function that i will call while running the command and the second parameter is the name of function that i defined.
 
 ![tests](/uploads/5da933d667f335e9a75f4659135668c4/tests.png)
 
 2) tests.h as :
+it takes the function declarations and extern it .
 
 ![tests_h](/uploads/96a6641c277ab0a45f80c8fa9a3710e1/tests_h.png)
 
 3) make.tests as :
+It contains the file location
 
 ![make_tests](/uploads/216623bf5070da27fb8a4202d8382576/make_tests.png)
+
+Code:-
+
+![print](/uploads/0acd3bcd139d1a8ab1e27d240ce5a381/print.png)
+
+Output :-
+
+![op](/uploads/89117aa49e9f030aa3ce0acf728d5450/op.png)
 
 
