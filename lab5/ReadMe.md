@@ -128,5 +128,55 @@ O/P:
 ![thread_output](/uploads/da0553dcaaf37d1790b079612d2712b9/thread_output.png)
 
 
+struct thread is a structure defined in threads/thread.h which represents a thread or a user process.
+struct thread must not be allowed to be greater than 1kB otherwise it will take the kernel stack space which creates the problem.
+
+Features of Threads:
+tid_t id;
+Every thread must have a tid that is unique. It is typedef in int.
+
+THREAD_RUNNING
+Exactly one thread is running at a given time. thread_current() returns the running thread.
+
+THREAD_READY
+The thread is ready to run, but it’s not running right now. The thread could
+be selected to run the next time the scheduler is invoked.
+
+THREAD_BLOCKED
+The thread is waiting for a lock to become available.
+The thread won’t be scheduled before thread_unblock().
+
+THREAD_DYING
+Destroying the thread.
+
+
+Functions of thread:
+
+void thread_init (void)
+It is called by main() to initialize the thread. It is used to create a
+struct thread for Pintos’s initial thread.
+
+thread_create ("name of thread" , int priority ,( thread func*) func ,NULL )
+Creates and starts a new thread named name with the given priority, returning the new thread’s tid.
+
+void thread_block (void)
+It block the running thread. The thread will not run again until thread_unblock() is called.
+
+void thread_yield (void)
+It schedule the process and generate a new thread.
+
+schedule() 
+It records the current thread in a variable.
+then internally calls next_thread_to_run() and then calls switch_threads() to do the actual thread switch. The thread we
+switched to was also running inside switch_threads(), as are all the threads not currently
+running, so the new thread get out of switch_threads(), finally returns the prev. thread
+
+timer_sleep(time in miliseconds):
+It calls the yield function to generate a new thread and put on hold the parent thread. I did this in my file to generate a child thread before parent execution.
+
+
+thread_exit()
+It terminates the thread.
+
 
 
