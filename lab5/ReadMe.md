@@ -85,4 +85,29 @@ Output :-
 
 ![op](/uploads/89117aa49e9f030aa3ce0acf728d5450/op.png)
 
+This above file is print_something.c which is in threads folder inside tests directory.
+
+*******************Part2 begins**************************
+Similarly i did the same procedue of random_sort.c
+
+File : I used the random_bytes() function and include random.h file
+
+![func_rand_sort](/uploads/fdffa1cdccd6128a01dcf5e1ebb36bc2/func_rand_sort.png)
+
+O/p:
+
+![random_sort](/uploads/3918ee38d6b3c2fe5f4f57684a8abe88/random_sort.png)
+
+Extra Part:
+Then I did random sort using API in a file random_sort_api.c in the same directory.
+
+File:
+
+![api](/uploads/a9d0f6d781bf14d089f58589a2f2a3e3/api.png)
+
+
+O/P:
+
+![api_op](/uploads/2f54238fb49a34e2f3697c11cca77e7f/api_op.png)
+
 
