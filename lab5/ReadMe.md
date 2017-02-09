@@ -89,6 +89,7 @@ This above file is print_something.c which is in threads folder inside tests dir
 
 *******************Part2 begins**************************
 Similarly i did the same procedue of random_sort.c
+function should be called as "random_sort" in pintos
 
 File : I used the random_bytes() function and include random.h file
 
@@ -100,6 +101,7 @@ O/p:
 
 Extra Part:
 Then I did random sort using API in a file random_sort_api.c in the same directory.
+function should be called as "random_sort_api" in pintos
 
 File:
 
@@ -109,5 +111,22 @@ File:
 O/P:
 
 ![api_op](/uploads/2f54238fb49a34e2f3697c11cca77e7f/api_op.png)
+
+**************************Threads*********************************
+
+I have created a file threads_creation in the same directory.
+function should be called as "thread" in pintos
+
+File:
+
+
+![threads](/uploads/ad7123340054060f293f03136b563a97/threads.png)
+
+
+O/P:
+
+![thread_output](/uploads/da0553dcaaf37d1790b079612d2712b9/thread_output.png)
+
+
 
 
