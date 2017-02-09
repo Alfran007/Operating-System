@@ -2,8 +2,6 @@
 #include <debug.h>
 #include <string.h>
 #include <stdio.h>
-#include "threads/thread.h"
-
 
 struct test 
   {
@@ -13,10 +11,10 @@ struct test
 
 static const struct test tests[] = 
   {
-  	{"print_something",test_print_something},
-  	{"random_sort",test_random_sort},
-  	{"threads_creation",test_thread_call},
-  	{"random_sort_api",test_random_sort_api},
+    {"print_something",test_print_something},
+    {"random_sort",test_random_sort},
+    {"thread",test_thread},
+    {"random_sort_api",test_random_sort_api},
     {"alarm-single", test_alarm_single},
     {"alarm-multiple", test_alarm_multiple},
     {"alarm-many", test_alarm_many},

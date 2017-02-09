@@ -7,7 +7,6 @@
 #include "devices/timer.h"
 
 
-
 void
 test_random_sort(void){
 /* To get the proper integer values*/
@@ -41,7 +40,4 @@ for(i=0;i<n;i++)
 {
 printf("%d ",a[i]);
 }
-thread_exit();
 }
-
-

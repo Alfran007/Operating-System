@@ -1,16 +1,13 @@
-#include "tests/threads/tests.h"
-#include <debug.h>
-#include <string.h>
 #include <stdio.h>
-#include"threads/thread.h"
+#include "tests/threads/tests.h"
+#include "threads/synch.h"
+#include "threads/thread.h"
 #include <random.h>
 #include "threads/malloc.h"
 #include "threads/synch.h"
-#include "threads/thread.h"
 #include "devices/timer.h"
 
-
-thread_func *
+void
 test_random_sort_new(void){
 /* To get the proper integer values*/
 char *a;
@@ -43,16 +40,19 @@ for(i=0;i<n;i++)
 {
 printf("%d ",a[i]);
 }
+printf("\n");
 thread_exit();
-printf("Thread Exiting\n");
 }
-
-void test_thread_call(void)
+void
+test_thread()
 {
-printf("Thread called\n");
-thread_create("Thread2",PRI_DEFAULT +1,test_random_sort_new,NULL);
+printf("Thread Called\n");
+// ASSERT (output != NULL);
+;
+
+thread_create ("threader", PRI_DEFAULT + 1, (thread_func *)test_random_sort_new, NULL);
+timer_sleep(10);
+
+//schedule();
 }
-
-
-
 

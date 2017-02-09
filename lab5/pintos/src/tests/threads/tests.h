@@ -7,7 +7,8 @@ void run_test (const char *);
 typedef void test_func (void);
 
 extern test_func test_print_something;
-extern test_func test_thread_call;
+extern test_func test_thread;
+extern test_func test_random_sort_new;
 extern test_func test_random_sort;
 extern test_func test_random_sort_api;
 extern test_func test_alarm_single;

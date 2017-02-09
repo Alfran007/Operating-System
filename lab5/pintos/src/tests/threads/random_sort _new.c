@@ -6,14 +6,9 @@
 #include "threads/thread.h"
 #include "devices/timer.h"
 
-void thread_sort(void)
-{
-printf("Thread called\n");
-thread_create("Thread2",PRI_DEFAULT +1,(thread_func *)test_random_sort,NULL);
-}
 
 void
-test_random_sort(void){
+test_random_sort_new(void){
 /* To get the proper integer values*/
 char *a;
 size_t n=10,i,j;
@@ -47,5 +42,3 @@ printf("%d ",a[i]);
 }
 thread_exit();
 }
-
-
