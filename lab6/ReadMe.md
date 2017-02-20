@@ -1,3 +1,8 @@
+##PART1 : lock.c
+##PART2 : RR_to_FCFS.c
+##EXTRA PART : extra.c
+**_All three files in tests/threads directory_**
+
 In the _tests/threads_ folder I creater a file `lock.c`
 
 I first used:
@@ -82,10 +87,10 @@ _Graph 1 : BTW TIME SLICE AND NO. Of ITERATIONS IN FIXED THREADS_
  
  
  
- Extra Graph and observation. When i changed the number of iterations and observed the graph it looke like below:
+ Extra Graph and observation. When i changed the number of iterations and observed the graph it look like below:
  
  ![Time_Slice_Vs_Number_Of_Threads_When_Iterations_are_Fixed](/uploads/bbb5491b1a71cd588bbfbc5cd13c6f6e/Time_Slice_Vs_Number_Of_Threads_When_Iterations_are_Fixed.png)
- 
+ Which means if i take greater number of iterations than the value of number of threads are greater for the same value of time slice of previous no. of iterations.
  
  
  
