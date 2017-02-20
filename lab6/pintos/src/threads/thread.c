@@ -51,7 +51,7 @@ static long long kernel_ticks;  /* # of timer ticks in kernel threads. */
 static long long user_ticks;    /* # of timer ticks in user programs. */
 
 /* Scheduling. */
-#define TIME_SLICE 50           /* # of timer ticks to give each thread. */
+#define TIME_SLICE 5          /* Change it to 50 if you want FCFS from Round Robin*/
 static unsigned thread_ticks;   /* # of timer ticks since last yield. */
 
 /* If false (default), use round-robin scheduler.

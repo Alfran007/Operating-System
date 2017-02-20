@@ -1,6 +1,6 @@
-**##PART1 : lock.c**
-**##PART2 : RR_to_FCFS.c**
-**##EXTRA PART : extra.c **
+**##PART1 : lock.c** _pintos -- run locker_
+**##PART2 : RR_to_FCFS.c** _pintos -- run threader_
+**##EXTRA PART : extra.c** _pintos -- run extra_
 **_All three files in tests/threads directory_**
 
 In the _tests/threads_ folder I creater a file `lock.c`
@@ -102,7 +102,7 @@ _Graph 1 : BTW TIME SLICE AND NO. Of ITERATIONS IN FIXED THREADS_
   On the other hand if time required for thread execution is less than the TIME_SLICE multiple threads can get executed in one iteration.
   
   Round-robin is a pre-emptive algorithm as the scheduler forces the process out of the CPU once the TIME_SLICE finishes.
-  
+  _Images added in images directory besides pintos folder_
   Thanks for Reading!
   
   

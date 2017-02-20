@@ -13,6 +13,7 @@ static const struct test tests[] =
   {
     {"alarm-single", test_alarm_single},
     {"threader",thread_creation},
+    {"extra",thread_extra},
     {"locker",its_different},
     {"alarm-multiple", test_alarm_multiple},
     {"alarm-simultaneous", test_alarm_simultaneous},
