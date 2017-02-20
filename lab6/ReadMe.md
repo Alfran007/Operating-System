@@ -54,6 +54,9 @@ _Graph 1 : BTW TIME SLICE AND NO. Of ITERATIONS IN FIXED THREADS_
  ![Time_Slice_Vs_No._Of_Iterations_for_fixed_Threads_-_-_Graph](/uploads/916b25d191060fa56f40c5e7fc3c5c18/Time_Slice_Vs_No._Of_Iterations_for_fixed_Threads_-_-_Graph.png)
  Above graph is for 3 Threads.
  
+ I derived the formula named **_Alfran's Formula_** which gives the No. of iterations in fixed threads if time slice is known. [(The starting kernel ticks of the main) - 
+ (Ticks after the end of last thread )]/Time Slice. I get this by  observing the changes of threads execution with time slice as shown in below snapshots.
+ 
  I counted the numbers of iterations for each time slice by keeping the number of threads fixed.
  
  _Graph 2 : BTW TIME SLICE AND NO. OF THREADS IN FIXED ITERATIONS_
@@ -92,7 +95,17 @@ _Graph 1 : BTW TIME SLICE AND NO. Of ITERATIONS IN FIXED THREADS_
  ![Time_Slice_Vs_Number_Of_Threads_When_Iterations_are_Fixed](/uploads/bbb5491b1a71cd588bbfbc5cd13c6f6e/Time_Slice_Vs_Number_Of_Threads_When_Iterations_are_Fixed.png)
  Which means if i take greater number of iterations than the value of number of threads are greater for the same value of time slice of previous no. of iterations.
  
- 
+ Knowledge Of Round Robin:
+  Time slices (also known as time quanta) are assigned to each process in equal portions and in circular order, handling all processes without priority.
+  When the thread execution time is greater than the Time given by CPU which is TIME_SLICE , some part of the current thread gets executed and the remaining part is sent back to the queue 
+  in round robin. So if we increase the TIME_SLICE value then it can be feel like it is converted to FCFS but actually it is still in  Round Robin but for a higher extent of time.
+  On the other hand if time required for thread execution is less than the TIME_SLICE multiple threads can get executed in one iteration.
+  
+  Round-robin is a pre-emptive algorithm as the scheduler forces the process out of the CPU once the TIME_SLICE finishes.
+  
+  Thanks for Reading!
+  
+  
  
  
  
