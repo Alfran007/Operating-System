@@ -41,3 +41,55 @@ After these changes the order of threads execution again becomes correct i.e. `R
 
 
 ********Graph*******
+_Graph 1 : BTW TIME SLICE AND NO. Of ITERATIONS IN FIXED THREADS_
+
+ Once the thread is executing but the amount of time given by CPU (time_slice) is less ,then the thread will go back in the queue as in Round Robin
+ and when it executes again in the next round we count it as the second iteration.
+ 
+ ![Time_Slice_Vs_No._Of_Iterations_for_fixed_Threads_-_-_Graph](/uploads/916b25d191060fa56f40c5e7fc3c5c18/Time_Slice_Vs_No._Of_Iterations_for_fixed_Threads_-_-_Graph.png)
+ Above graph is for 3 Threads.
+ 
+ I counted the numbers of iterations for each time slice by keeping the number of threads fixed.
+ 
+ _Graph 2 : BTW TIME SLICE AND NO. OF THREADS IN FIXED ITERATIONS_
+ 
+ We have to find out that in one CPU time quanta how many threads have been executed, 
+ i.e. if the time required to execute a thread is less than the TIME_SLICE then multiple 
+ threads can be executed in that specific  `fixed iteration`.
+ 
+ First I counted the number of threads in 3 iterations.
+ 
+ ![Time_Slice_Vs_Number_Of_Threads_When_Iterations_are_Fixed_-_Graph](/uploads/06c62f143e80529c0fc216ff83bc2384/Time_Slice_Vs_Number_Of_Threads_When_Iterations_are_Fixed_-_Graph.png)
+ 
+ I counted the number of kernel ticks changed and accordingly counted the number of threads executing with change in it. I printed the `thread_print_stats()` for that.
+ Like when `TIME SLICE ` is 5
+ 
+ ![time5](/uploads/2daab31242168672d3f623ac1ca63742/time5.png)
+ 
+ When it is 6 it is:
+ 
+ ![time6](/uploads/21653070ad6b0c496b3189598e1b90ec/time6.png)
+ 
+ When it is 1 it is :
+ 
+ ![time_1](/uploads/659c03bdaa4d0b0696f5c52ca82c1fc2/time_1.png)
+ 
+ When it is 3 it is:
+ 
+ ![time_3](/uploads/49380931e44ef0c6efd26c8acbab6a9e/time_3.png)
+ 
+ With Each of these I observed the threads going back to queue in Round Robin and after waiting executing in another Time Slice.
+ 
+ 
+ 
+ Extra Graph and observation. When i changed the number of iterations and observed the graph it looke like below:
+ 
+ ![Time_Slice_Vs_Number_Of_Threads_When_Iterations_are_Fixed](/uploads/bbb5491b1a71cd588bbfbc5cd13c6f6e/Time_Slice_Vs_Number_Of_Threads_When_Iterations_are_Fixed.png)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
