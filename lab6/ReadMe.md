@@ -1,6 +1,6 @@
-##PART1 : lock.c
-##PART2 : RR_to_FCFS.c
-##EXTRA PART : extra.c
+**##PART1 : lock.c**
+**##PART2 : RR_to_FCFS.c**
+**##EXTRA PART : extra.c **
 **_All three files in tests/threads directory_**
 
 In the _tests/threads_ folder I creater a file `lock.c`
