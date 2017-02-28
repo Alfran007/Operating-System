@@ -1,6 +1,8 @@
 
 #include<stdio.h>
-#include<conio.h>
+#include<stdlib.h>
+#include<ctype.h>
+
 void main() {
 	int k=0,d=0,t=0,i,pno,j,r,c=0;
 	int x=10,y=5;
