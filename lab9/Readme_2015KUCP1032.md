@@ -68,7 +68,7 @@ Precautions:
 If continous memory equal to the new size is not present the pointer returned may be a pointer to another location where continous memory is availablle.
 That is the pointer may point to another location different from the previously allocated physical address. This may result in the loss of old values. 
 			
-4) free() : The free() function frees (deallocates) the memory space pointed to by ptr, which must have been returned by a previous call to malloc(), calloc(), or realloc().
+4) **free()** : The free() function frees (deallocates) the memory space pointed to by ptr, which must have been returned by a previous call to malloc(), calloc(), or realloc().
 If ptr is NULL, no operation is performed.
 If free(ptr) has already been called before, undefined behavior occurs. 
 			
@@ -86,7 +86,7 @@ free(a);
 Precaution:
 free should not be used to deallocate a pointer which was already deallocated.
 			
-5) alloca() : The  alloca() function allocates size Bytes of space in the stack segment of the caller.
+5) **alloca()** : The  alloca() function allocates size Bytes of space in the stack segment of the caller.
 This temporary space is automatically  freed  when the function that called alloca() returns to its caller.
 
 The header file for alloca() is "alloca.h"
@@ -105,7 +105,7 @@ Precautions:
 If the allocation causes stack overflow, program behavior is undefined. Therefore care should be taken while using alloca();
 
 	
-6) longjmp()
+6) **longjmp()**
 	
 Syntax: void longjmp(jmp_buf env, int val);
 env − This is the object of type jmp_buf containing information to restore the environment at the setjmp's calling point.
@@ -141,7 +141,7 @@ void jmpfunction(jmp_buf env_buf)
 }
 			
 			
-7) brk()
+7) **brk()**
 	
 Syntax : int brk(void *addr);
 			
@@ -153,7 +153,7 @@ brk() sets the end of the data segment to the value specified by addr, when the 
 
 The header file for brk() is "alloca.h"
 		
-8) mmap()
+8) **mmap()**
 	
 Syntax: void *mmap(void *addr, size_t length, int prot, int flags,int fd, off_t offset);
                  
@@ -168,7 +168,7 @@ The address of the new mapping is returned as the result of the call.
 		
 The header file for mmap() is "sys/mman.h"
 	
-9) munmap()
+9) **munmap()**
 
 Syntax: int munmap(void *addr, size_t length);
 
