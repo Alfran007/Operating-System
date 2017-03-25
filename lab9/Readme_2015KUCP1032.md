@@ -1,4 +1,3 @@
-
 ---------------------------------------------------------------------------------------
 
 
@@ -7,7 +6,7 @@
 1. **malloc()** : The malloc() is used to dynamicaly allocate memory of a specified size at the time of execution of a program.
 It return a pointer to the allocated memory.
 The memory is not initialised i.e. it may have garbage value.Garbage value is some unused and unrequired value at some memory location.
- .malloc() function can return NULL if we try to allocate 0 Bytes size for a variable.
+malloc() function can return NULL if we try to allocate 0 Bytes size for a variable.
 		
 Syntax: void *realloc(size_t size)
 It allocates size Bytes of memory and returns a pointer which can be type casted to appropriate pointer type.
@@ -38,7 +37,7 @@ Here 50 blocks of memory each of size 4 Bytes are allocated and __ptr__ points t
 			
 Using calloc continous allocation of memory is done.
 		
-The difference between malloc() and calloc() is that
+The difference between malloc() and calloc() is that:
 1. malloc() allocates single block of memory whereas calloc() allocates multiple blocks of memory each of same size 
 2. calloc() sets all bytes to zero.
 		
