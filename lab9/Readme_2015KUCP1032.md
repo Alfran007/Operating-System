@@ -3,7 +3,7 @@
 
 **Question 1**
 
-1. **malloc()** : The malloc() is used to dynamicaly allocate memory of a specified size at the time of execution of a program.
+1) **malloc()** : The malloc() is used to dynamicaly allocate memory of a specified size at the time of execution of a program.
 It return a pointer to the allocated memory.
 The memory is not initialised i.e. it may have garbage value.Garbage value is some unused and unrequired value at some memory location.
 malloc() function can return NULL if we try to allocate 0 Bytes size for a variable.
@@ -18,7 +18,7 @@ int *ptr  = (int *)malloc(sizeof(int));
 Here the pointer ptr is allocated size of int i.e. 4 bytes during the execution of this statement.				
 Using malloc continous allocation of memory is done.
 		
-2. **calloc()** : The calloc() function is used to dynamically allocate memory for an array of N elements of M bytes each at the time of execution of the program. 
+2) **calloc()** : The calloc() function is used to dynamically allocate memory for an array of N elements of M bytes each at the time of execution of the program. 
 It returns a pointer to the begining of the allocated memory. The memory is initialised to zero (or in case of char to NULL). 
 
 calloc() accepts two arguments. First the number of elements(N) and second the size of each element(M). 
@@ -38,10 +38,10 @@ Here 50 blocks of memory each of size 4 Bytes are allocated and __ptr__ points t
 Using calloc continous allocation of memory is done.
 		
 The difference between malloc() and calloc() is that:
-1. malloc() allocates single block of memory whereas calloc() allocates multiple blocks of memory each of same size 
-2. calloc() sets all bytes to zero.
+a) malloc() allocates single block of memory whereas calloc() allocates multiple blocks of memory each of same size 
+b) calloc() sets all bytes to zero.
 		
-3. **realloc()** : The  realloc() function changes the size of the memory block pointed to by ptr to size bytes. 
+3) **realloc()** : The  realloc() function changes the size of the memory block pointed to by ptr to size bytes. 
 The contents will be unchanged in the range from the start of the region up to the minimum of the old and new sizes.
 If the new size is larger than the old size, the added memory will not be initialized.
 If  ptr  is  NULL,  then  the call is equivalent to malloc(size). 
@@ -68,7 +68,7 @@ Precautions:
 If continous memory equal to the new size is not present the pointer returned may be a pointer to another location where continous memory is availablle.
 That is the pointer may point to another location different from the previously allocated physical address. This may result in the loss of old values. 
 			
-4. free() : The free() function frees (deallocates) the memory space pointed to by ptr, which must have been returned by a previous call to malloc(), calloc(), or realloc().
+4) free() : The free() function frees (deallocates) the memory space pointed to by ptr, which must have been returned by a previous call to malloc(), calloc(), or realloc().
 If ptr is NULL, no operation is performed.
 If free(ptr) has already been called before, undefined behavior occurs. 
 			
@@ -86,7 +86,7 @@ free(a);
 Precaution:
 free should not be used to deallocate a pointer which was already deallocated.
 			
-5. alloca() : The  alloca() function allocates size Bytes of space in the stack segment of the caller.
+5) alloca() : The  alloca() function allocates size Bytes of space in the stack segment of the caller.
 This temporary space is automatically  freed  when the function that called alloca() returns to its caller.
 
 The header file for alloca() is "alloca.h"
@@ -105,7 +105,7 @@ Precautions:
 If the allocation causes stack overflow, program behavior is undefined. Therefore care should be taken while using alloca();
 
 	
-6. longjmp()
+6) longjmp()
 	
 Syntax: void longjmp(jmp_buf env, int val);
 env − This is the object of type jmp_buf containing information to restore the environment at the setjmp's calling point.
@@ -141,7 +141,7 @@ void jmpfunction(jmp_buf env_buf)
 }
 			
 			
-7. brk()
+7) brk()
 	
 Syntax : int brk(void *addr);
 			
@@ -153,7 +153,7 @@ brk() sets the end of the data segment to the value specified by addr, when the 
 
 The header file for brk() is "alloca.h"
 		
-8. mmap()
+8) mmap()
 	
 Syntax: void *mmap(void *addr, size_t length, int prot, int flags,int fd, off_t offset);
                  
@@ -168,7 +168,7 @@ The address of the new mapping is returned as the result of the call.
 		
 The header file for mmap() is "sys/mman.h"
 	
-9. munmap()
+9) munmap()
 
 Syntax: int munmap(void *addr, size_t length);
 
